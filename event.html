@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- On refresh, clear any saved scroll position and return to the page top. -->
+<script>
+(() => {
+  const navigation = window.performance?.getEntriesByType?.('navigation')?.[0];
+  if (navigation?.type !== 'reload') return;
+  try { if ('scrollRestoration' in history) history.scrollRestoration = 'manual'; } catch {}
+  try { if (location.hash) history.replaceState(history.state, '', location.pathname + location.search); } catch {}
+  const returnToTop = () => {
+    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo(0, 0));
+  };
+  window.addEventListener('pageshow', returnToTop, { once: true });
+  window.addEventListener('load', returnToTop, { once: true });
+})();
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Event Website Example</title>
