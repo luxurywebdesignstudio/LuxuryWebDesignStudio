@@ -746,6 +746,75 @@ header nav a[aria-current="page"] { background:rgba(201,127,104,.13); border-col
 @media(max-width:780px) { header nav a { margin-left:0; } }
 </style>
   <link rel="stylesheet" href="refresh.css?v=20260924c">
+<style>
+/* Keep section styling off the page body; use a compact content rhythm. */
+body.studio-page.studio-skills {
+  display:block;
+  margin:0;
+  padding:0 !important;
+  border:0;
+  border-radius:0 !important;
+}
+body.studio-skills main { width:min(1180px,calc(100% - 44px)); padding-top:104px; padding-bottom:30px; }
+body.studio-skills .skills-page-intro {
+  display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);
+  align-items:center; gap:12px 36px; min-height:0;
+  max-width:none; margin:0; padding:28px 0 30px;
+}
+body.studio-skills .skills-page-intro .about-label { grid-column:1/-1; margin:0; }
+body.studio-skills .skills-page-intro h1 { font-size:clamp(2.35rem,4.3vw,3.7rem); margin:0; max-width:650px; }
+body.studio-skills .skills-page-intro > p:last-child { margin:0; font-size:.94rem; line-height:1.75; }
+body.studio-skills .skills-page-intro::before,
+body.studio-skills .skills-page-intro::after,
+body.studio-skills .skills-page-intro h1::after { display:none; }
+body.studio-skills #skills,
+body.studio-skills .skills-process,
+body.studio-skills .skills-outcomes {
+  max-width:none; margin:0 0 20px; padding:28px !important; border-radius:16px !important;
+}
+body.studio-skills #skills { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:30px; }
+body.studio-skills #skills > * { min-width:0; }
+body.studio-skills #skills h2,
+body.studio-skills .skills-process h2,
+body.studio-skills .skills-outcomes h2 { font-size:clamp(1.8rem,2.8vw,2.55rem); margin-bottom:12px; }
+body.studio-skills .about-label { margin-bottom:10px; }
+body.studio-skills .skill-tags { margin-top:18px; }
+body.studio-skills .skills-panel { transform:none; }
+body.studio-skills .code-sample { overflow-x:auto; }
+body.studio-skills .skills-process-heading { max-width:none; margin-bottom:20px; }
+body.studio-skills .skills-process-heading p { max-width:780px; margin-bottom:0; }
+body.studio-skills .skills-process-heading::after { display:none; }
+body.studio-skills .skill-flow { gap:14px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+body.studio-skills .skill-step { min-height:0; padding:20px; margin:0; }
+body.studio-skills .skill-step-top { margin-bottom:14px; }
+body.studio-skills .skill-step p { min-height:0; }
+body.studio-skills .skill-step code { max-width:100%; white-space:normal; overflow-wrap:anywhere; margin-top:6px; }
+body.studio-skills .skills-outcomes-heading { gap:22px; margin-bottom:18px; align-items:center; }
+body.studio-skills .outcome-showcase { gap:16px; }
+body.studio-skills .outcome-card { min-height:0; padding:18px; }
+body.studio-skills .outcome-mark { margin-bottom:10px; }
+body.studio-skills .outcome-card p { margin-bottom:0; }
+@media(max-width:900px) {
+ body.studio-skills .outcome-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ body.studio-skills .outcome-showcase { flex-wrap:wrap; justify-content:flex-start; }
+}
+@media(max-width:760px) {
+ body.studio-skills main { padding-top:140px; }
+ body.studio-skills .skills-page-intro { grid-template-columns:1fr; gap:14px; padding:20px 0 24px; }
+ body.studio-skills #skills { grid-template-columns:1fr; gap:22px; }
+ body.studio-skills #skills,body.studio-skills .skills-process,body.studio-skills .skills-outcomes { padding:22px !important; }
+ body.studio-skills .skill-flow { grid-template-columns:1fr; }
+ body.studio-skills .skill-flow::before { display:none; }
+ body.studio-skills .skills-outcomes-heading { flex-direction:column; align-items:flex-start; }
+ body.studio-skills .outcome-showcase > p { max-width:none; flex:1; }
+}
+@media(max-width:420px) {
+ body.studio-skills .outcome-grid { grid-template-columns:1fr; }
+ body.studio-skills .outcome-showcase { display:block; }
+ body.studio-skills .device-cluster { margin-top:16px; }
+}
+</style>
+<style>body.studio-skills .skill-flow::before { display: none; }</style>
 </head>
 <body class="studio-page studio-skills">
 <header>

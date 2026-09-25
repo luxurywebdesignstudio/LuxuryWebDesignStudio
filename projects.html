@@ -686,6 +686,24 @@ header nav a[aria-current="page"] { background:rgba(201,127,104,.13); border-col
 @media(max-width:780px) { header nav a { margin-left:0; } }
 </style>
   <link rel="stylesheet" href="refresh.css?v=20260924c">
+
+<style>
+/* Miniature desktop views stay in sync with the local demo pages. */
+.project-live-preview { container-type: inline-size; }
+.project-live-preview iframe {
+  position: absolute;
+  inset: 0;
+  width: 1280px;
+  height: 800px;
+  max-width: none;
+  border: 0;
+  pointer-events: none;
+  transform: scale(.25);
+  transform-origin: top left;
+  background: #faf9f3;
+}
+
+</style>
 </head>
 <body class="studio-page studio-projects">
 <header>
@@ -736,15 +754,15 @@ header nav a[aria-current="page"] { background:rgba(201,127,104,.13); border-col
     <div class="projects-summary"><span><i aria-hidden="true"></i> 03 demo websites</span><span>Web design · Front-end development</span></div>
     <div class="projects">
       <article class="project-card">
-        <div class="project-card-image"><img src="images/icecream.png" alt="Pastel ice cream shop concept with product imagery" loading="lazy" decoding="async"></div>
+        <div class="project-card-image project-live-preview" role="img" aria-label="Preview of the redesigned Sweet Scoops ice cream website"><iframe src="ice-cream.html" title="Sweet Scoops ice cream website preview" loading="eager" tabindex="-1" aria-hidden="true" inert sandbox="allow-same-origin" scrolling="no"></iframe></div>
         <div class="project-card-content"><span class="project-category">Retail demo</span><h3>Ice Cream Website</h3><p>A cheerful storefront concept with product browsing and a responsive layout.</p><dl class="project-brief"><div><dt>For</dt><dd>Local dessert shops and cafés</dd></div><div><dt>Goal</dt><dd>Help visitors find flavors and choose what to order</dd></div><div><dt>Design choice</dt><dd>Colorful, product-first browsing</dd></div></dl><a class="btn" href="ice-cream.html" target="_blank" rel="noopener">View example</a></div>
       </article>
       <article class="project-card">
-        <div class="project-card-image"><img src="images/landingpage.png" alt="Landing page concept with a focused hero and call to action" loading="lazy" decoding="async"></div>
+        <div class="project-card-image project-live-preview" role="img" aria-label="Preview of the redesigned SkillBoost learning website"><iframe src="landingpage.html" title="SkillBoost learning website preview" loading="lazy" tabindex="-1" aria-hidden="true" inert sandbox="" scrolling="no"></iframe></div>
         <div class="project-card-content"><span class="project-category">Service landing-page demo</span><h3>Landing Page Design</h3><p>A focused landing page concept built around a clear message and next step.</p><dl class="project-brief"><div><dt>For</dt><dd>Small businesses promoting one service</dd></div><div><dt>Goal</dt><dd>Explain the offer and encourage an inquiry</dd></div><div><dt>Design choice</dt><dd>One clear message with a direct next step</dd></div></dl><a class="btn" href="landingpage.html" target="_blank" rel="noopener">View example</a></div>
       </article>
       <article class="project-card">
-        <div class="project-card-image"><img src="images/event.png" alt="Event website concept with schedule and attendee details" loading="lazy" decoding="async"></div>
+        <div class="project-card-image project-live-preview" role="img" aria-label="Preview of the redesigned Common Ground event website"><iframe src="event.html" title="Common Ground event website preview" loading="lazy" tabindex="-1" aria-hidden="true" inert sandbox="" scrolling="no"></iframe></div>
         <div class="project-card-content"><span class="project-category">Event demo</span><h3>Event Website</h3><p>An event experience that brings the schedule and attendee details together.</p><dl class="project-brief"><div><dt>For</dt><dd>Event organizers and their guests</dd></div><div><dt>Goal</dt><dd>Make the schedule and key details easy to check</dd></div><div><dt>Design choice</dt><dd>Scannable timing and attendee information</dd></div></dl><a class="btn" href="event.html" target="_blank" rel="noopener">View example</a></div>
       </article>
     </div>
@@ -876,5 +894,20 @@ header nav a[aria-current="page"] { background:rgba(201,127,104,.13); border-col
 })();
 </script>
 
+<script>
+(() => {
+  const previews = document.querySelectorAll('.project-live-preview');
+  const resizePreview = preview => {
+    preview.querySelector('iframe').style.transform = `scale(${preview.clientWidth / 1280})`;
+  };
+  previews.forEach(resizePreview);
+  if ('ResizeObserver' in window) {
+    const observer = new ResizeObserver(entries => entries.forEach(entry => resizePreview(entry.target)));
+    previews.forEach(preview => observer.observe(preview));
+  } else {
+    window.addEventListener('resize', () => previews.forEach(resizePreview));
+  }
+})();
+</script>
 </body>
 </html>
