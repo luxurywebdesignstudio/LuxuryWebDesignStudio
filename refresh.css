@@ -149,11 +149,12 @@ body.studio-home .hero h1 {
 }
 body.studio-home .hero h1 span {
   color: #d9a17f;
-  background: linear-gradient(100deg, #d59b7d 0%, #e0bb88 48%, #c3adbf 100%);
+  background: linear-gradient(105deg, #d59b7d 0%, #e0bb88 25%, #c3adbf 52%, #a9b7a2 76%, #d59b7d 100%);
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: refresh-color 7s ease-in-out infinite alternate;
+  animation: refresh-color 6.5s ease-in-out infinite alternate;
 }
 body.studio-home .typing-sub { max-width: 490px; color: #c4baad; font-size: 1rem; line-height: 1.85; }
 body.studio-home .hero-proof { color: #9d958a; font-size: .77rem; letter-spacing: .02em; }
@@ -344,7 +345,7 @@ body.demo-landing .testimonials { background:#eae9e1; }
 body.demo-landing .cta { margin:55px auto; border-radius:20px; background:linear-gradient(120deg,#274448,#415953); }
 
 @keyframes refresh-orbit { to { transform: rotate(360deg); } }
-@keyframes refresh-color { to { filter: hue-rotate(13deg); } }
+@keyframes refresh-color { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
 @media(max-width:900px) {
   body.studio-home .research-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
   body.studio-home .hero { min-height:0; }
