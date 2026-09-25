@@ -144,7 +144,7 @@ body.studio-home .hero-copy { max-width: 620px; }
 body.studio-home .hero h1 {
   max-width: 680px;
   color: #faf4e9;
-  font: 400 clamp(3.35rem, 7.4vw, 6.8rem)/.98 Georgia, 'Times New Roman', serif;
+  font: 400 clamp(3.1rem, 5.4vw, 5.1rem)/1.01 Georgia, 'Times New Roman', serif;
   letter-spacing: -.055em;
 }
 body.studio-home .hero h1 span {
